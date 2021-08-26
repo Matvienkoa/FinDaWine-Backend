@@ -30,7 +30,7 @@ app.use(hpp());
 app.use("/api/auth", rateLimit.authLimiter);
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
-app.use('/api/appli-beer/auth', require('./routes/auth'));
-app.use('/api/appli-beer/beers', require('./routes/beers'));
+app.use('/api/findawine/auth', require('./routes/auth'));
+app.use('/api/findawine/wines', require('./routes/wines'));
 
 module.exports = app;

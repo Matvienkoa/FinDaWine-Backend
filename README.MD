@@ -1,6 +1,6 @@
-# FinDaBeer
+# FinDaWine
 
-Find your Beer Application Backend
+Find your Wine Application Backend
 
 ## Prerequisites
 

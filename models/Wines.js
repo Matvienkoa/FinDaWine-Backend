@@ -2,20 +2,20 @@ const { STRING } = require('sequelize');
 const Sequelize = require('sequelize');
 const db = require('../config/config');
 
-const Beers = db.define('beer', {
-    name: {
+const Wines = db.define('wine', {
+    domaine: {
         type: Sequelize.STRING
     },
-    brewery: {
-        type: Sequelize.STRING
+    millesime: {
+        type: Sequelize.DECIMAL
     },
-    type: {
+    cepage: {
         type: Sequelize.STRING
     },
     description: {
         type: Sequelize.STRING
     },
-    country: {
+    pays: {
         type: Sequelize.STRING
     },
     alcool: {
@@ -24,7 +24,7 @@ const Beers = db.define('beer', {
     format: {
         type: Sequelize.DECIMAL
     },
-    price: {
+    prix: {
         type: Sequelize.DECIMAL
     },
     EAN: {
@@ -34,15 +34,36 @@ const Beers = db.define('beer', {
     imageUrl: {
         type: Sequelize.STRING
     },
-    bitterness: {
-        type: Sequelize.INTEGER
+    gouts: {
+        type: Sequelize.STRING
     },
-    color: {
+    couleur: {
         type: STRING
+    },
+    region: {
+        type: Sequelize.STRING
+    },
+    oeil: {
+        type: Sequelize.STRING
+    },
+    nez: {
+        type: Sequelize.STRING
+    },
+    bouche: {
+        type: Sequelize.STRING
+    },
+    temperature: {
+        type: Sequelize.STRING
+    },
+    conservation: {
+        type: Sequelize.STRING
+    },
+    accords: {
+        type: Sequelize.STRING
     }
 });
 
-module.exports = Beers;
+module.exports = Wines;
 
 
 

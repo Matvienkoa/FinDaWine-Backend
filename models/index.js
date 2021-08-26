@@ -1,7 +1,7 @@
 const User = require('../models/User');
-const Beers = require('../models/Beers');
+const Wines = require('../models/Wines');
 
 module.exports = {
     User,
-    Beers
+    Wines
 };
