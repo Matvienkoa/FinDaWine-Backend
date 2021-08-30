@@ -6,6 +6,9 @@ const Wines = db.define('wine', {
     domaine: {
         type: Sequelize.STRING
     },
+    appellation: {
+        type: Sequelize.STRING
+    },
     millesime: {
         type: Sequelize.DECIMAL
     },
@@ -38,7 +41,7 @@ const Wines = db.define('wine', {
         type: Sequelize.STRING
     },
     couleur: {
-        type: STRING
+        type: Sequelize.STRING
     },
     region: {
         type: Sequelize.STRING
@@ -60,6 +63,12 @@ const Wines = db.define('wine', {
     },
     accords: {
         type: Sequelize.STRING
+    },
+    viticulture: {
+        type: Sequelize.STRING
+    },
+    promo: {
+        type: Sequelize.INTEGER
     }
 });
 
