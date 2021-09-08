@@ -4,28 +4,31 @@ const fs = require('fs');
 // Create Wine
 exports.createWine = (req, res) => {
     // Empty Inputs
-    if (req.body.domaine === "" || req.body.millesime === "" || req.body.description === "" || req.body.pays === "" || req.body.alcool === "" || req.body.format === "" || req.body.EAN === "" || req.body.couleur === "" || req.body.prix === "" || req.body.region === "") {
+    if (req.body.domaine === "" || req.body.appellation === "" || req.body.millesime === "" || req.body.pays === "" || req.body.region === "" || req.body.couleur === "" || req.body.viticulture === "" || req.body.alcool === "" || req.body.format === "" || req.body.prix === "" || req.body.description === "" || req.body.EAN === "" || req.body.promo === "") {
         return res.status(400).json({ message: "Merci de renseigner tous les Champs Obligatoires"});
     }
     models.Wines.create({
         domaine: req.body.domaine,
+        appellation: req.body.appellation,
         millesime: req.body.millesime,
-        cepage: req.body.cepage,
-        description: req.body.description,
         pays: req.body.pays,
+        region: req.body.region,
+        couleur: req.body.couleur,
+        cepage: req.body.cepage,
+        viticulture: req.body.viticulture,
         alcool: req.body.alcool,
         format: req.body.format,
-        EAN: req.body.EAN,
         prix: req.body.prix,
-        gouts: req.body.gouts,
-        couleur: req.body.couleur,
-        region: req.body.region,
+        description: req.body.description,
+        EAN: req.body.EAN,
         oeil: req.body.oeil,
         nez: req.body.nez,
         bouche: req.body.bouche,
+        gouts: req.body.gouts,
         temperature: req.body.temperature,
         conservation: req.body.conservation,
         accords: req.body.accords,
+        promo: req.body.promo,
         imageUrl: req.file ? 
         `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
         :null
@@ -37,7 +40,7 @@ exports.createWine = (req, res) => {
 // Edit Wine
 exports.modifyWine = async (req, res) => {   
     // Empty Inputs
-    if (req.body.domaine === "" || req.body.millesime === "" || req.body.description === "" || req.body.pays === "" || req.body.alcool === "" || req.body.format === "" || req.body.EAN === "" || req.body.couleur === "" || req.body.prix === "" || req.body.region === "") {
+    if (req.body.domaine === "" || req.body.appellation === "" || req.body.millesime === "" || req.body.pays === "" || req.body.region === "" || req.body.couleur === "" || req.body.viticulture === "" || req.body.alcool === "" || req.body.format === "" || req.body.prix === "" || req.body.description === "" || req.body.EAN === "" || req.body.promo === "") {
         return res.status(400).json({ message: "Merci de renseigner tous les Champs Obligatoires"});
     }
     const wine = await models.Wines.findOne({
@@ -45,24 +48,27 @@ exports.modifyWine = async (req, res) => {
     })
     await wine.update(
         {
-            domaine: req.body.domaine,
+        domaine: req.body.domaine,
+        appellation: req.body.appellation,
         millesime: req.body.millesime,
-        cepage: req.body.cepage,
-        description: req.body.description,
         pays: req.body.pays,
+        region: req.body.region,
+        couleur: req.body.couleur,
+        cepage: req.body.cepage,
+        viticulture: req.body.viticulture,
         alcool: req.body.alcool,
         format: req.body.format,
-        EAN: req.body.EAN,
         prix: req.body.prix,
-        gouts: req.body.gouts,
-        couleur: req.body.couleur,
-        region: req.body.region,
+        description: req.body.description,
+        EAN: req.body.EAN,
         oeil: req.body.oeil,
         nez: req.body.nez,
         bouche: req.body.bouche,
+        gouts: req.body.gouts,
         temperature: req.body.temperature,
         conservation: req.body.conservation,
         accords: req.body.accords,
+        promo: req.body.promo,
         imageUrl: req.file ? 
         `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
         :null

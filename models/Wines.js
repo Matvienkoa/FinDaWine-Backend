@@ -1,4 +1,3 @@
-const { STRING } = require('sequelize');
 const Sequelize = require('sequelize');
 const db = require('../config/config');
 
@@ -68,7 +67,7 @@ const Wines = db.define('wine', {
         type: Sequelize.STRING
     },
     promo: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL
     }
 });
 
