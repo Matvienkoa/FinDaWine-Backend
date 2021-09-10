@@ -108,6 +108,13 @@ exports.getOneWine = (req, res) => {
     .catch(error => res.status(404).json({ error }));
 };
 
+exports.getOneWineByEAN = (req, res) => {
+    models.Wines.findOne({
+        where: { EAN: req.params.EAN }})
+    .then(wine => res.status(200).json(wine))
+    .catch(error => res.status(404).json({ error }));
+};
+
 // Get All Wines
 exports.getAllWines = (req, res) => {
     models.Wines.findAll({
